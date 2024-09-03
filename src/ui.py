@@ -1,9 +1,10 @@
 from salaus import Salaus
 
 class Ui:
-    """Luokka vastaa ohjelman käyttöliittymäpuolesta ja käyttäjän ohjeistamisesta ohjelman käytössä."""
+    """Luokka vastaa ohjelman käyttöliittymäpuolesta ja käyttäjän ohjeistamisesta ohjelman
+    käytössä."""
 
-     def __init__(self):
+    def __init__(self):
         pass
 
     def kaynnista(self):
