@@ -17,13 +17,20 @@ Algoritmit ja tekoäly harjoitustyö 2024
 ## Käyttöohje
 
 Ensin käyttäjän tulee asentaa tarvittavat riippuvuudet komennolla
-`poetry install`
+
+```poetry install```
+
 
 Tämän jälkeen sovellus käynnistetään komennolla
-`poetry run invoke start`
+
+```poetry run invoke start```
+
 
 Testit voi suorittaa käyttäen seuraavaa komentoa
-`poetry run invoke tests`
+
+```poetry run invoke tests```
+
 
 Ja testikattavuusraportin saa luotua komennolla
-`poetry run invoke coverage`
+
+```poetry run invoke coverage```
