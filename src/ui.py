@@ -1,4 +1,4 @@
-from salaus import Salaus
+from encryption import Encryption
 
 class Ui:
     """Luokka vastaa ohjelman käyttöliittymäpuolesta ja käyttäjän ohjeistamisesta ohjelman
@@ -7,18 +7,18 @@ class Ui:
     def __init__(self):
         pass
 
-    def kaynnista(self):
+    def start(self):
         """Funktio käynnistää salausohjelman näyttäen ohjelman aloitusvalikon käyttäjälle."""
         pass
 
-    def salaa(self):
+    def encrypt(self):
         """Funktio viestin salaamisen käyttöliittymäpuolta varten."""
         pass
 
-    def pura(self):
+    def decrypt(self):
         """Funktio viestin salauksen purkamisen käyttöliittymäpuolta varten."""
         pass
     
-    def sulje(self):
+    def close(self):
         """Funktio joka lopettaa ohjelman suorittamisen."""
         pass
