@@ -1,4 +1,4 @@
-from encryption import Encryption
+from encryptionkeys import EncryptionKeys
 
 class Ui:
     """Luokka vastaa ohjelman käyttöliittymäpuolesta ja käyttäjän ohjeistamisesta ohjelman
