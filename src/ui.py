@@ -41,19 +41,29 @@ class Ui:
 
     def encrypt(self):
         """Funktio viestin salaamisen käyttöliittymäpuolta varten."""
-        
+
         message = input("\nSyötä viesti jonka haluat salata: ")
 
     def decrypt(self):
         """Funktio viestin salauksen purkamisen käyttöliittymäpuolta varten."""
-        
+
         private_key_d = input("\nSyötä salainen avain d:")
         public_key_n = input("Syötä julkinen avain n: ")
         encrypted_message = input("Syötä annetuilla avaimilla salattu viesti: ")
+        error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja\n"
+        try:
+            if float(private_key_d) == int(private_key_d) and float(public_key_n) == int(public_key_n) and int(private_key_d) > 0 and int(public_key_n) > 0:
+                private_key_d = int(private_key_d)
+                public_key_n = int(public_key_n)
+            else:
+                print(error)
+                self.decrypt()
+        except ValueError:
+            print(error)
+            self.decrypt()
 
-    
     def close(self):
         """Funktio joka lopettaa ohjelman suorittamisen."""
-        
+
         print("\n\nKiitos ja näkemiin!\n")
         sys.exit()

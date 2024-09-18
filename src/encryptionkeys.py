@@ -1,11 +1,11 @@
 import random
-import math
 
 class EncryptionKeys:
     """Luokka vastaa viestin salaamisesta vaadittavista avaimista"""
 
     def generate_prime(self):
-        """Satunnaisten, toisistaan riippumattomien alkulukujen generoimiseen. Palauttaa alkuluvun"""
+        """Satunnaisten, toisistaan riippumattomien alkulukujen generoimiseen.
+        Palauttaa alkuluvun"""
 
         while True:
             test = random.randrange(999, 10**10, 2)
@@ -14,7 +14,8 @@ class EncryptionKeys:
 
     def check_if_prime(self, num):
         """
-        Tarkistaa Miller-Rabin algoritmia käyttäen onko luku alkuluku. Palauttaa totuusarvon
+        Tarkistaa Miller-Rabin algoritmia käyttäen onko luku alkuluku.
+        Palauttaa totuusarvon
         
         Args:
             num : kokonaisluku joka tarkastetaan
@@ -69,4 +70,3 @@ class EncryptionKeys:
         """
 
         pass
-            
