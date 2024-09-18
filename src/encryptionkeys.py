@@ -37,12 +37,12 @@ class EncryptionKeys:
                 return False
         return True
 
-    def public_key_n(self p, q):
+    def public_key_n(self, p, q):
         """
         Julkisen avaimen n osan laskemiseen. Palauttaa n osan
         
         Args:
-            p ja q : toisistaan riippumattomia alkulukuja jotka ovat > 1000
+            p ja q : toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja > 1000
         """
 
         n = p * q
@@ -53,9 +53,20 @@ class EncryptionKeys:
         Julkisen avaimen e osan laskemiseen. Palauttaa e osan
         
         Args:
-            p ja q : toisistaan riippumattomia alkulukuja jotka ovat > 1000
+            p ja q : toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja > 1000
         """
 
         e_smaller_than = (p-1)*(q-1)
         e = random.randint(2, e_smaller_than-1)
         return e
+
+    def private_key_d(self, p, q):
+        """
+        Salaisen avaimen eksponenttiosan d laskemiseen. Palauttaa salaisen avaimen d osan
+        
+        Args:
+            p ja q : toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja > 1000
+        """
+
+        pass
+            
