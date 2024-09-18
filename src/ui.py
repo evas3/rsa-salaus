@@ -47,6 +47,7 @@ class Ui:
     def decrypt(self):
         """Funktio viestin salauksen purkamisen käyttöliittymäpuolta varten."""
 
+        print("Salauksen purkaminen vaatii skyseisen viestin salaukseen käytetyn salaisen avaimen d ja julkisen avaimen n")
         private_key_d = input("\nSyötä salainen avain d:")
         public_key_n = input("Syötä julkinen avain n: ")
         encrypted_message = input("Syötä annetuilla avaimilla salattu viesti: ")
