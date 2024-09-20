@@ -1,5 +1,6 @@
 import sys
-from encryptionkeys import EncryptionKeys
+from encryption import Encryption
+from decryption import Decryption
 
 class Ui:
     """Luokka vastaa ohjelman käyttöliittymäpuolesta ja käyttäjän ohjeistamisesta ohjelman
@@ -42,7 +43,19 @@ class Ui:
     def encrypt(self):
         """Funktio viestin salaamisen käyttöliittymäpuolta varten."""
 
+        error = "\nTällä hetkellä ohjelma ei vielä tue tekstin salaamista"
+        print(error)
         message = input("\nSyötä viesti jonka haluat salata: ")
+        try:
+            message = int(message)
+            e = 65537
+            encrypted_message = Encryption().encryption(message, e)
+            print("Salattu viesti on:", str(encrypted_message)+"\n")
+            self.menu()
+        except ValueError:
+            print(error)
+            self.encrypt()
+        
 
     def decrypt(self):
         """Funktio viestin salauksen purkamisen käyttöliittymäpuolta varten."""
@@ -51,11 +64,15 @@ class Ui:
         private_key_d = input("\nSyötä salainen avain d:")
         public_key_n = input("Syötä julkinen avain n: ")
         encrypted_message = input("Syötä annetuilla avaimilla salattu viesti: ")
-        error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja\n"
+        error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja. Tällä hetkellä ohjelma ei vielä tue tekstin salaamista\n"
         try:
             if float(private_key_d) == int(private_key_d) and float(public_key_n) == int(public_key_n) and int(private_key_d) > 0 and int(public_key_n) > 0:
                 private_key_d = int(private_key_d)
                 public_key_n = int(public_key_n)
+                encrypted_message = int(encrypted_message)
+                decrypted_message = Decryption().decryption(encrypted_message, private_key_d, public_key_n)
+                print("Viesti on salaamattomana:", str(decrypted_message)+"\n")
+                self.menu()
             else:
                 print(error)
                 self.decrypt()
