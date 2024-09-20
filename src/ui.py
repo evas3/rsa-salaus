@@ -55,16 +55,15 @@ class Ui:
         except ValueError:
             print(error)
             self.encrypt()
-        
 
     def decrypt(self):
         """Funktio viestin salauksen purkamisen käyttöliittymäpuolta varten."""
 
-        print("Salauksen purkaminen vaatii skyseisen viestin salaukseen käytetyn salaisen avaimen d ja julkisen avaimen n")
+        print("Salauksen purkaminen vaatii kyseisen viestin salaukseen käytetyn salaisen avaimen d ja julkisen avaimen n")
         private_key_d = input("\nSyötä salainen avain d:")
         public_key_n = input("Syötä julkinen avain n: ")
         encrypted_message = input("Syötä annetuilla avaimilla salattu viesti: ")
-        error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja. Tällä hetkellä ohjelma ei vielä tue tekstin salaamista\n"
+        error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja.Tällä hetkellä ohjelma ei vielä tue tekstin salaamista\n"
         try:
             if float(private_key_d) == int(private_key_d) and float(public_key_n) == int(public_key_n) and int(private_key_d) > 0 and int(public_key_n) > 0:
                 private_key_d = int(private_key_d)
