@@ -61,7 +61,7 @@ class EncryptionKeys:
         e = random.randint(2, e_smaller_than-1)
         return e
 
-    def private_key_d(self, p, q):
+    def private_key_d(self, p, q, e):
         """
         Salaisen avaimen eksponenttiosan d laskemiseen. Palauttaa salaisen avaimen d osan
         
@@ -69,4 +69,10 @@ class EncryptionKeys:
             p ja q : toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja > 1000
         """
 
-        pass
+        k = 1
+        on = (p-1)*(q-1)
+        while True:
+            value = (1+k*on)/e
+            if value.is_integer():
+                return int(value)
+            k += 1

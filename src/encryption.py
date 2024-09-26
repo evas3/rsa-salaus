@@ -10,11 +10,12 @@ class Encryption:
         self.q = EncryptionKeys().generate_prime()
         while self.p == self.q:
             self.q = EncryptionKeys().generate_prime()
-        self.n = EncryptionKeys().public_key_n(self.p, self.q)
+        self.n = self.p*self.q
 
     def encryption(self, message_as_numbers, public_key_e):
         """
-        Vastaa viestin salaamisesta. Palauttaa salatun viestin.
+        Vastaa viestin salaamisesta. Palauttaa ruplen jonka ensimmäinen elementti on
+        salattu viesti, toinen elementti julkinen avain n ja viimeinen salainen avain d.
 
         Args:
             message_as_numbers : salattava viesti numeroina
@@ -23,4 +24,5 @@ class Encryption:
         """
 
         encrypted_message = pow(message_as_numbers, public_key_e, self.n)
-        return encrypted_message
+        private_key_d = EncryptionKeys().private_key_d(self.p, self.q, public_key_e)
+        return (encrypted_message, self.n, private_key_d)

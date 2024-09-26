@@ -49,8 +49,11 @@ class Ui:
         try:
             message = int(message)
             e = 65537
-            encrypted_message = Encryption().encryption(message, e)
-            print("Salattu viesti on:", str(encrypted_message)+"\n")
+            encrypted_info= Encryption().encryption(message, e)
+            print("\nSalattu viesti on:", str(encrypted_info[0]))
+            print("Viesti on salattu käyttäen seuraavaa julkista avainta n:", str(encrypted_info[1]))
+            print("Sekä seuraavaa salaista avainta d:", str(encrypted_info[2]))
+            print("Huomioi että salainen avain ei saa päätyä ulkopuolisille!\n")
             self.menu()
         except ValueError:
             print(error)
@@ -60,17 +63,17 @@ class Ui:
         """Funktio viestin salauksen purkamisen käyttöliittymäpuolta varten."""
 
         print("Salauksen purkaminen vaatii kyseisen viestin salaukseen käytetyn salaisen avaimen d ja julkisen avaimen n")
-        private_key_d = input("\nSyötä salainen avain d:")
+        private_key_d = input("\nSyötä salainen avain d: ")
         public_key_n = input("Syötä julkinen avain n: ")
         encrypted_message = input("Syötä annetuilla avaimilla salattu viesti: ")
-        error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja.Tällä hetkellä ohjelma ei vielä tue tekstin salaamista\n"
+        error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja. Tällä hetkellä ohjelma ei vielä tue tekstin salaamista\n"
         try:
-            if float(private_key_d) == int(private_key_d) and float(public_key_n) == int(public_key_n) and int(private_key_d) > 0 and int(public_key_n) > 0:
+            if int(private_key_d) > 0 and int(public_key_n) > 0:
                 private_key_d = int(private_key_d)
                 public_key_n = int(public_key_n)
                 encrypted_message = int(encrypted_message)
                 decrypted_message = Decryption().decryption(encrypted_message, private_key_d, public_key_n)
-                print("Viesti on salaamattomana:", str(decrypted_message)+"\n")
+                print("\nViesti on salaamattomana:", str(decrypted_message)+"\n")
                 self.menu()
             else:
                 print(error)
