@@ -18,6 +18,8 @@ Algoritmit ja tekoäly harjoitustyö 2024
 
 - [Viikkoraportti 3](https://github.com/evas3/rsa-salaus/blob/main/docs/viikkoraportti3.md)
 
+- [Viikkoraportti 4](https://github.com/evas3/rsa-salaus/blob/main/docs/viikkoraportti4.md)
+
 ## Käyttöohje
 
 Ensin käyttäjän tulee asentaa tarvittavat riippuvuudet komennolla
