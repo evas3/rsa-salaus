@@ -11,4 +11,5 @@ Testikattavuusraportin saa luotua komennolla
 
 
 Tällä hetkellä testikattavuus näyttää tältä 
-![alt text]()
+
+![alt text](https://github.com/evas3/rsa-salaus/blob/main/docs/testikattavuus.png)
