@@ -1,20 +1,23 @@
 from encryptionkeys import EncryptionKeys
+from primes import Primes
+import math
 
 class Encryption:
     """Luokka vastaa viestin salaamisesta"""
 
-    def __init__(self):
-        """Konstruktori avaimia varten"""
+    def message_to_int(self, message):
+        """
+        Muuttaa viestin int muotoon ja palauttaa int muotoisen viestin.
+        
+        Args:
+            message : käyttäjän antama salattava viesti
+        """
 
-        self.p = EncryptionKeys().generate_prime()
-        self.q = EncryptionKeys().generate_prime()
-        while self.p == self.q:
-            self.q = EncryptionKeys().generate_prime()
-        self.n = self.p*self.q
+        return int.from_bytes(message.encode(), byteorder="big")
 
     def encryption(self, message_as_numbers, public_key_e):
         """
-        Vastaa viestin salaamisesta. Palauttaa ruplen jonka ensimmäinen elementti on
+        Vastaa viestin salaamisesta. Palauttaa tuplen jonka ensimmäinen elementti on
         salattu viesti, toinen elementti julkinen avain n ja viimeinen salainen avain d.
 
         Args:
@@ -23,6 +26,10 @@ class Encryption:
 
         """
 
-        encrypted_message = pow(message_as_numbers, public_key_e, self.n)
-        private_key_d = EncryptionKeys().private_key_d(self.p, self.q, public_key_e)
-        return (encrypted_message, self.n, private_key_d)
+        primes = Primes().two_primes()
+        prime_p = primes[0]
+        prime_q = primes[1]
+        n = prime_p * prime_q
+        encrypted_message = pow(message_as_numbers, public_key_e, n)
+        private_key_d = EncryptionKeys().private_key_d(prime_p, prime_q, public_key_e)
+        return (encrypted_message, n, private_key_d)

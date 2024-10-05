@@ -1,5 +1,18 @@
+import math
+
 class Decryption:
     """Luokka joka vastaa salauksen purkamisesta"""
+
+    def message_to_str(self, message):
+        """
+        Vastaa viestin muuntamisesta takaisin alkuperäiseen muotoon, palauttaa tämän
+        
+        Args:
+            message : viesti int muodossa
+        """
+
+        length = math.ceil((message.bit_length() / 8))
+        return message.to_bytes(length, byteorder="big").decode()
 
     def decryption(self, encrypted_message, private_key_d, public_key_n):
         """
