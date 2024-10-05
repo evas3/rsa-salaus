@@ -5,6 +5,7 @@ index.py käynnistää käyttöliittymän (ui.py) joka toteuttaa salauksen sekä
 
 
 ## Aika- ja tilavaativuudet
+Ohjelman käyttämä pow-funktio on aikavaativuudeltaan O(logN)
 
 ## Parannuksia
 
@@ -17,3 +18,4 @@ https://fi.wikipedia.org/wiki/RSA
 https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/
 https://nordvpn.com/fi/blog/rsa-kryptografiaan/?srsltid=AfmBOoq3sBepL1Bt-WEpLxLvOlyZU2wl7qBCpCthOW7znRup1dARmhXZ
 https://www.geeksforgeeks.org/rsa-algorithm-cryptography/
+https://www.naukri.com/code360/library/math-pow
