@@ -12,7 +12,8 @@ class Ui:
     def start(self):
         """Funktio käynnistää salausohjelman."""
 
-        print("\nRSA-salaus")
+        print("\n----------")
+        print("RSA-salaus")
         print("----------\n\n")
         self.menu()
 
@@ -22,8 +23,7 @@ class Ui:
         print("Toiminnot:")
         print("1 : Salaa viesti automaattisesti generoitavilla avaimilla")
         print("2 : Pura viestin salaus")
-        print("3 : Lopeta")
-        print("")
+        print("3 : Lopeta\n")
         func = input("Syötä toimintoa vastaava numero: ")
         try:
             func = int(func)
@@ -48,10 +48,10 @@ class Ui:
             e = 65537
             message_int = Encryption().message_to_int(message)
             encrypted_info= Encryption().encryption(message_int, e)
-            print("\nSalattu viesti on:", str(encrypted_info[0]))
+            print("\n\nSalattu viesti on:", str(encrypted_info[0]))
             print("Viesti on salattu käyttäen seuraavaa julkista avainta n:", str(encrypted_info[1]))
             print("Sekä seuraavaa salaista avainta d:", str(encrypted_info[2]))
-            print("Huomioi että salainen avain ei saa päätyä ulkopuolisille!\n")
+            print("Huomioi että salainen avain ei saa päätyä ulkopuolisille!\n\n")
             self.menu()
         except ValueError:
             print("Jotain meni vikaan")
@@ -60,7 +60,7 @@ class Ui:
     def decrypt(self):
         """Funktio viestin salauksen purkamisen käyttöliittymäpuolta varten."""
 
-        print("Salauksen purkaminen vaatii kyseisen viestin salaukseen käytetyn salaisen avaimen d ja julkisen avaimen n")
+        print("\nSalauksen purkaminen vaatii kyseisen viestin salaukseen käytetyn salaisen avaimen d ja julkisen avaimen n")
         private_key_d = input("\nSyötä salainen avain d: ")
         public_key_n = input("Syötä julkinen avain n: ")
         encrypted_message = input("Syötä annetuilla avaimilla salattu viesti: ")
@@ -71,9 +71,9 @@ class Ui:
                 public_key_n = int(public_key_n)
                 encrypted_message = int(encrypted_message)
                 decrypted_message = Decryption().decryption(encrypted_message, private_key_d, public_key_n)
-                print("3", decrypted_message)
+                print("hei", decrypted_message)
                 original_message = Decryption().message_to_str(decrypted_message)
-                print("\nViesti on salaamattomana:", str(original_message)+"\n")
+                print("\n\nViesti on salaamattomana:", str(original_message)+"\n\n")
                 self.menu()
             else:
                 print(error)

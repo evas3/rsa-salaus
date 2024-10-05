@@ -10,5 +10,5 @@ Testikattavuusraportin saa luotua komennolla
 ```poetry run invoke coverage```
 
 
-Tällä hetkellä testikattavuus näyttää tältä eli siinä on vielä parannettavan varaa
-![alt text](https://github.com/evas3/rsa-salaus/blob/main/docs/testikattavuus.png)
+Tällä hetkellä testikattavuus näyttää tältä 
+![alt text]()

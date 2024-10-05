@@ -21,10 +21,12 @@ class Primes:
             num : kokonaisluku joka tarkastetaan
         """
 
+        if num % 2 == 0:
+            return False
         e = num - 1
         while e % 2 == 0:
             e = int(e / 2)
-        for i in range(10):
+        for i in range(40):
             a = random.randint(2, num-1)
             pow_unbroken = True
             if pow(a, e, num) == 1:

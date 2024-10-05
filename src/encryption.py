@@ -1,6 +1,5 @@
 from encryptionkeys import EncryptionKeys
 from primes import Primes
-import math
 
 class Encryption:
     """Luokka vastaa viestin salaamisesta"""
@@ -30,6 +29,7 @@ class Encryption:
         prime_p = primes[0]
         prime_q = primes[1]
         n = prime_p * prime_q
+        phi =  (prime_p - 1) * (prime_q - 1)
         encrypted_message = pow(message_as_numbers, public_key_e, n)
-        private_key_d = EncryptionKeys().private_key_d(prime_p, prime_q, public_key_e)
+        private_key_d = EncryptionKeys().private_key_d(phi, public_key_e)
         return (encrypted_message, n, private_key_d)

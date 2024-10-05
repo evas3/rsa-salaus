@@ -3,30 +3,26 @@ import random
 class EncryptionKeys:
     """Luokka vastaa viestin salaamisesta vaadittavista avaimista"""
 
-    def public_key_e(self, p, q):
+    def public_key_e(self, phi):
         """
         Julkisen avaimen e osan laskemiseen. Palauttaa e osan
         
         Args:
-            p ja q : toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja > 1000
+            phi : (prime_p - 1) * (prime_q - 1). Alkuluvut ovat
+            toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja > 1000
         """
 
-        e_smaller_than = (p-1)*(q-1)
-        e = random.randint(2, e_smaller_than-1)
-        return e
+        return random.randint(2, phi-1)
 
-    def private_key_d(self, p, q, e):
+    def private_key_d(self, phi, e):
         """
         Salaisen avaimen eksponenttiosan d laskemiseen. Palauttaa salaisen avaimen d osan
         
         Args:
-            p ja q : toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja > 1000
+            phi : (prime_p - 1) * (prime_q - 1). Alkuluvut ovat
+            toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja > 1000
+            e : satunnainen kokonaisluku väliltä [2, phi-2]
         """
 
-        k = 1
-        on = (p-1)*(q-1)
-        while True:
-            value = (1+k*on)/e
-            if value.is_integer():
-                return int(value)
-            k += 1
+        d = pow(e, -1, phi)
+        return d
