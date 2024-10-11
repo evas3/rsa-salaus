@@ -22,6 +22,8 @@ Algoritmit ja tekoäly harjoitustyö 2024
 
 - [Viikkoraportti 5](https://github.com/evas3/rsa-salaus/blob/main/docs/viikkoraportti5.md)
 
+- [Viikkoraportti 6](https://github.com/evas3/rsa-salaus/blob/main/docs/viikkoraportti6.md)
+
 ## Käyttöohje
 
 Ensin käyttäjän tulee asentaa tarvittavat riippuvuudet komennolla
@@ -34,9 +36,13 @@ Tämän jälkeen sovellus käynnistetään komennolla
 ```poetry run invoke start```
 
 
+Käynnistämisen jälkeen käyttöliittymä opastaa käyttäjää ohjelman käytössä.
+
+
 Testit voi suorittaa käyttäen seuraavaa komentoa
 
 ```poetry run invoke tests```
+
 
 
 Ja testikattavuusraportin saa luotua komennolla
