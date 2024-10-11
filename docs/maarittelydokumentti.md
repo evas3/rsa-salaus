@@ -9,4 +9,9 @@ Projektissa toteutan ohjelman joka kykenee salaamaan käyttäjän antamia vieste
 	
 ## Projektin algoritmit ja tietorakenteet
 
+Projekti vaatii suurten alkulukujen generoimista ja tässä apuna on käytetty Miller-Rabin algoritmia
+
 ## Viitteet
+
+https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/
+
