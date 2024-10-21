@@ -66,4 +66,6 @@ poetry run invoke tests
 
 Ja testikattavuusraportin saa luotua komennolla
 
-```poetry run invoke coverage```
+```
+poetry run invoke coverage
+```
