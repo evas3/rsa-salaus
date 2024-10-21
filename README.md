@@ -1,4 +1,4 @@
-# rsa-salaus
+# RSA-salaus
 
 Algoritmit ja tekoäly harjoitustyö 2024
 
@@ -9,6 +9,9 @@ Algoritmit ja tekoäly harjoitustyö 2024
 - [Toteutusdokumentti](https://github.com/evas3/rsa-salaus/blob/main/docs/toteutusdokumentti.md)
 
 - [Testausdokumentti](https://github.com/evas3/rsa-salaus/blob/main/docs/testausdokumentti.md)
+
+- Käyttöohje löytyy alempaa
+  
 
 ## Viikkoraportit:
 
@@ -37,6 +40,10 @@ Tämän jälkeen sovellus käynnistetään komennolla
 
 
 Käynnistämisen jälkeen käyttöliittymä opastaa käyttäjää ohjelman käytössä.
+
+Ohjelmasta löytyy kolme toimintoa: viestin salaaminen automaattisesti generoitavilla avaimilla, viestin salauksen purkaminen ja lopeta. Toiminto valitaan syöttämällä käyttöliittymälle haluttua toimintoa vastaava numero. Viestiä salatessa ohjelmalle tulee syöttää salattava viesti ja se palauttaa salatun viestin sekä salaamisen käytetyt, viestin purkamiseen vaaditut avaimet. Viestiä purettaessa ohjelmalle tulee syöttää salattu viesti sekä edellä mainitut avaimet viestin purkamista varten. Lopeta toiminto lopettaa ohjelman suorittamisen.
+
+
 
 
 Testit voi suorittaa käyttäen seuraavaa komentoa
