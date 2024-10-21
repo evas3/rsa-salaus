@@ -45,12 +45,18 @@ poetry run invoke start
 
 Käynnistämisen jälkeen käyttöliittymä opastaa käyttäjää ohjelman käytössä.
 
-Ohjelmasta löytyy kolme toimintoa: viestin salaaminen automaattisesti generoitavilla avaimilla, viestin salauksen purkaminen ja lopeta. Toiminto valitaan syöttämällä käyttöliittymälle haluttua toimintoa vastaava numero. Kunkin toiminnon numero lukee sitä vastaavan toiminnnon edessä. Viestiä salatessa ohjelmalle tulee syöttää salattava viesti ja se palauttaa tekstinä salatun viestin sekä salaamisen käytetyt, viestin purkamiseen vaaditut avaimet. Viestiksi sopii lyhyt merkkijono. Viestiä purettaessa ohjelmalle tulee syöttää salattu viesti sekä edellä mainitut avaimet viestin purkamista varten. Viestin täytyy olla salattu syötettyjä avaimia käyttäen sillä muuten salauksen purkaminen ei luonnollisesti toimi. Avaimet ovat suuria positiivisia kokonaislukuja. Lopeta toiminto lopettaa ohjelman suorittamisen.
+Ohjelmasta löytyy kolme toimintoa: viestin salaaminen automaattisesti generoitavilla avaimilla, viestin salauksen purkaminen ja lopeta. Toiminto valitaan syöttämällä käyttöliittymälle haluttua toimintoa vastaava numero. Kunkin toiminnon numero lukee sitä vastaavan toiminnnon edessä.
+
+Viestiä salatessa ohjelmalle tulee syöttää salattava viesti ja se palauttaa tekstinä salatun viestin sekä salaamisen käytetyt, viestin purkamiseen vaaditut avaimet. Viestiksi sopii lyhyt merkkijono. 
+
+Viestiä purettaessa ohjelmalle tulee syöttää salattu viesti sekä edellä mainitut avaimet viestin purkamista varten. Viestin täytyy olla salattu syötettyjä avaimia käyttäen sillä muuten salauksen purkaminen ei luonnollisesti toimi. Avaimet ovat suuria positiivisia kokonaislukuja. 
+
+Lopeta toiminto lopettaa ohjelman suorittamisen.
 
 
 
 
-Testit voi suorittaa käyttäen seuraavaa komentoa
+Projektille on myös tehty valmiita testejä. Testit voi suorittaa käyttäen seuraavaa komentoa
 
 ```
 poetry run invoke tests
