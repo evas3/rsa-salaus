@@ -27,5 +27,4 @@ Projekti edellyttää vähintään Python versiota 3.10. Projekti vaatii suurten
 - [Wikipedia: Miller-Rabin algoritmi](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test)
 - [Wikipedia: Erastotheneen seula](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
 - [Nordvpn: RSA-salaus](https://nordvpn.com/fi/blog/rsa-kryptografiaan/?srsltid=AfmBOoq3sBepL1Bt-WEpLxLvOlyZU2wl7qBCpCthOW7znRup1dARmhXZ)
-- 
 
