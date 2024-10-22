@@ -18,12 +18,14 @@ Yksityinen avain saadaan edellä mainitusta n osasta sekä yksityisestä ekspone
 
 Varsinainen viestin salaus noudattaa yksinkertaista kaavaa. Viestiä salatessa siis salattu viesti saadaan laskemalla (Viesti)^{e} mod n. Alkuperäinen viesti saadaan laskemalla (Salattu viesti){d} mod n.
 	
-## Projektin algoritmit ja tietorakenteet
+## Projektin algoritmit
 
-Projekti edellyttää vähintään Python versiota 3.10. Projekti vaatii suurten alkulukujen generoimista ja tässä apuna on käytetty Miller-Rabin algoritmia
+Projekti edellyttää vähintään Python versiota 3.10. Projekti vaatii suurten alkulukujen generoimista ja tässä apuna on käytetty Miller-Rabin algoritmia. Kyseinen algoritmi siis testaa sille annettavasta luvusta onko kyseessä alkuluku vai ei. Miller-Rabin algoritmin aikaviitivuus on Wikipedian mukaan O(k log^{3} n) jossa n on numero josta testataan onko se alkuluku. Lisäksi voidaan käyttää Eratostheneen seulaa pienten alkulukujen laskemiseen jotta pienempi määrä luvuista tulee tarkistaa Miller-Rabin algoritmia käyttäen. Tämän algoritmin aikavaativuus on O(n log log n).
 
 ## Lähteet
 
-- [Geeks for geeks: Miller-Rabin algoritmi](https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/)
+- [Wikipedia: Miller-Rabin algoritmi](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test)
+- [Wikipedia: Erastotheneen seula](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
 - [Nordvpn: RSA-salaus](https://nordvpn.com/fi/blog/rsa-kryptografiaan/?srsltid=AfmBOoq3sBepL1Bt-WEpLxLvOlyZU2wl7qBCpCthOW7znRup1dARmhXZ)
+- 
 
