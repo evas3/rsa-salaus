@@ -48,9 +48,9 @@ class Ui:
             e = 65537
             message_int = Encryption().message_to_int(message)
             encrypted_info= Encryption().encryption(message_int, e)
-            print("\n\nSalattu viesti on:", str(encrypted_info[0]))
-            print("Viesti on salattu käyttäen seuraavaa julkista avainta n:", str(encrypted_info[1]))
-            print("Sekä seuraavaa salaista avainta d:", str(encrypted_info[2]))
+            print("\n\nSalattu viesti on:", str(encrypted_info[0]),"\n")
+            print("Viesti on salattu käyttäen seuraavaa julkista avainta n:", str(encrypted_info[1]),"\n")
+            print("Sekä seuraavaa salaista avainta d:", str(encrypted_info[2]),"\n")
             print("Huomioi että salainen avain ei saa päätyä ulkopuolisille!\n\n")
             self.menu()
         except ValueError:
@@ -62,8 +62,8 @@ class Ui:
 
         print("\nSalauksen purkaminen vaatii kyseisen viestin salaukseen käytetyn salaisen avaimen d ja julkisen avaimen n")
         private_key_d = input("\nSyötä salainen avain d: ")
-        public_key_n = input("Syötä julkinen avain n: ")
-        encrypted_message = input("Syötä annetuilla avaimilla salattu viesti: ")
+        public_key_n = input("\nSyötä julkinen avain n: ")
+        encrypted_message = input("\nSyötä annetuilla avaimilla salattu viesti: ")
         error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja.\n"
         try:
             if int(private_key_d) > 0 and int(public_key_n) > 0:
@@ -71,7 +71,6 @@ class Ui:
                 public_key_n = int(public_key_n)
                 encrypted_message = int(encrypted_message)
                 decrypted_message = Decryption().decryption(encrypted_message, private_key_d, public_key_n)
-                print("hei", decrypted_message)
                 original_message = Decryption().message_to_str(decrypted_message)
                 print("\n\nViesti on salaamattomana:", str(original_message)+"\n\n")
                 self.menu()

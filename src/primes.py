@@ -1,31 +1,42 @@
+import secrets
 import random
 
 class Primes:
-    """Luokka vastaa alkulukujen generoimisesta"""
+    """
+    Luokka vastaa salaukseen vaadittavien alkulukujen generoimisesta
+    """
 
     def generate_prime(self):
-        """Satunnaisten, toisistaan riippumattomien alkulukujen generoimiseen.
-        Palauttaa alkuluvun"""
+        """
+        Satunnaisten, toisistaan riippumattomien alkulukujen generoimiseen.
+        Palauttaa todennäköisen alkuluvun. Secrets kirjaston randbits palauttaa
+        satunnaisen luvun jossa on spesifoitu määrä bittejä.
+        """
 
         while True:
-            test = random.randrange(999, 10**10, 2)
+            test = secrets.randbits(1030)
             if self.check_if_prime(test):
                 return test
 
     def check_if_prime(self, num):
         """
-        Tarkistaa Miller-Rabin algoritmia käyttäen onko luku alkuluku.
-        Palauttaa totuusarvon
+        Tarkistaa Miller-Rabin algoritmia käyttäen onko luku todennäköisesti alkuluku.
+        Palauttaa totuusarvon. Palauttaa heti false jos luku on jaollinen
+        toisella alkuluvulla.
         
         Args:
             num : kokonaisluku joka tarkastetaan
         """
 
-        if num % 2 == 0:
-            return False
+        #Testaa onko luku jaollinen pienellä alkuluvulla
+        for i in self.small_primes():
+            if num % i == 0:
+                return False
+
+        #Muussa tapauksessa suoritetaan hitaanpi Miller-Rabin alkulukutesti
         e = num - 1
         while e % 2 == 0:
-            e = int(e / 2)
+            e = int(e // 2)
         for i in range(40):
             a = random.randint(2, num-1)
             pow_unbroken = True
@@ -51,3 +62,24 @@ class Primes:
         while p == q:
             q = self.generate_prime()
         return (p, q)
+
+    def small_primes(self):
+        """
+        Palauttaa listan pienimmistä alkuluvuista jottei aina tarvitse käyttää
+        Miller-Rabin algoritmia. Käyttää Erastotheneen seulaa.
+        """
+
+        num_list = [True for num in range(5000)]
+        primes = []
+        p = 2
+        while p**2 <= 4999:
+            if num_list[p]:
+                #p:llä kerrolliset luvut eivät ole alkulukuja
+                for i in range(p**2, 5000, p):
+                    num_list[i] = False
+            p += 1
+
+        for i in range(2, 5000):
+            if num_list[i]:
+                primes.append(i)
+        return primes
