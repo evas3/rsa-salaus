@@ -2,14 +2,16 @@ from encryptionkeys import EncryptionKeys
 from primes import Primes
 
 class Encryption:
-    """Luokka vastaa viestin salaamisesta"""
+    """
+    Luokka vastaa viestin salaamisesta
+    """
 
     def message_to_int(self, message):
         """
         Muuttaa viestin int muotoon ja palauttaa int muotoisen viestin.
         
         Args:
-            message : käyttäjän antama salattava viesti
+            message : käyttäjän antama salattava viesti. Alle 256 tavua pitkä
         """
 
         return int.from_bytes(message.encode(), byteorder="big")

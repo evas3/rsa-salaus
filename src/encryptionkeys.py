@@ -1,7 +1,9 @@
 import random
 
 class EncryptionKeys:
-    """Luokka vastaa viestin salaamisesta vaadittavista avaimista"""
+    """
+    Luokka vastaa viestin salaamisesta vaadittavista avaimista
+    """
 
     def public_key_e(self, phi):
         """

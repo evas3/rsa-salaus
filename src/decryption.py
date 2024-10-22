@@ -1,7 +1,9 @@
 import math
 
 class Decryption:
-    """Luokka joka vastaa salauksen purkamisesta"""
+    """
+    Luokka joka vastaa salauksen purkamisesta
+    """
 
     def message_to_str(self, message):
         """
