@@ -82,7 +82,6 @@ class Ui:
         private_key_d = input("\nSyötä salainen avain d: ")
         public_key_n = input("\nSyötä julkinen avain n: ")
         encrypted_message = input("\nSyötä annetuilla avaimilla salattu viesti: ")
-        error = "\nSalaisen ja julkisen avaimen tulee olla positiivisia kokonaislukuja ja niiden tulee olla avaimet joilla viesti on salattu\n"
 
         try:
             if int(private_key_d) > 0 and int(public_key_n) > 0:
@@ -94,11 +93,11 @@ class Ui:
                 print("\n\nViesti on salaamattomana:", str(original_message)+"\n\n")
                 self.menu()
             else:
-                print(error)
+                print("\nAvainten tulee olla positiivisia kokonaislukuja")
                 self.decrypt()
 
         except ValueError:
-            print(error)
+            print("\nAvainten tulee olla ne avaimet joilla annettu viesti on salattu\n")
             self.decrypt()
 
     def close(self):

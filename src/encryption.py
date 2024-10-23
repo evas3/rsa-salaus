@@ -9,6 +9,7 @@ class Encryption:
     def message_to_int(self, message):
         """
         Muuttaa viestin int muotoon ja palauttaa int muotoisen viestin.
+        Decode/encode käyttää UTF-8
         
         Args:
             message : käyttäjän antama salattava viesti. Alle 256 tavua pitkä
@@ -20,6 +21,8 @@ class Encryption:
         """
         Vastaa viestin salaamisesta. Palauttaa tuplen jonka ensimmäinen elementti on
         salattu viesti, toinen elementti julkinen avain n ja viimeinen salainen avain d.
+        RSA-salauksessa salattu viesti saadaan (viesti)^{e} mod n jossa n on kahden suuren
+        alkuluvun (q ja p) tulo.
 
         Args:
             message_as_numbers : salattava viesti numeroina

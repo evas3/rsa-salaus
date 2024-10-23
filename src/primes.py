@@ -20,20 +20,18 @@ class Primes:
 
     def check_if_prime(self, num):
         """
-        Tarkistaa Miller-Rabin algoritmia käyttäen onko luku todennäköisesti alkuluku.
-        Palauttaa totuusarvon. Palauttaa heti false jos luku on jaollinen
-        toisella alkuluvulla.
-        
+        Tarkistaa Miller-Rabin algoritmia ja pienten alkulukujen listaa käyttäen onko
+        luku todennäköisesti alkuluku. Palauttaa totuusarvon.
+
         Args:
             num : kokonaisluku joka tarkastetaan
         """
 
-        #Testaa onko luku jaollinen pienellä alkuluvulla
-        for i in self.small_primes():
+        for i in Primes().small_primes():
             if num % i == 0:
                 return False
 
-        #Muussa tapauksessa suoritetaan hitaanpi Miller-Rabin alkulukutesti
+        #Miller-Rabin alkulukutesti
         e = num - 1
         while e % 2 == 0:
             e = int(e // 2)
@@ -66,7 +64,7 @@ class Primes:
     def small_primes(self):
         """
         Palauttaa listan pienimmistä alkuluvuista jottei aina tarvitse käyttää
-        Miller-Rabin algoritmia. Käyttää Erastotheneen seulaa.
+        Miller-Rabin algoritmia. Käyttää listan luomiseen Erastotheneen seulaa.
         """
 
         num_list = [True for num in range(5000)]
