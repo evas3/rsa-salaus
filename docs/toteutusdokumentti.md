@@ -7,7 +7,7 @@ index.py käynnistää käyttöliittymän (ui.py) joka toteuttaa salauksen sekä
 ## Aikavaativuus
 Erityisesti aikavaativuus aiheuttaa ongelmia suurten alkulukujen generoimisen kohdalla sillä suurten parittomien lukujen testaaminen alkuluvuiksi on hidasta. Jos tarkasteltava luku ei ole alkuluku tulee valita uusi satunnaisluku ja testataa uudelleen onko kyseessä alkuluku niin kauan kunnes löydetään kaksi suurta toisistaan eriävää alkulukua.
 
-Reseachgatesta löytämäni julkaisun mukaan RSA-algoritmin aikavaativuus on O((log_{2}x))^{3}. Miller-Rabin alkulukutestin aikavaativuudeksi sanotaan yleisesti Wikipediassa O(k log^{3} n). Geeks for geeksistä löytyvän algoritmin aikavaativuudeksi on merkattu O(k log n) ja tilavaativuus on O(1). Jottei ohjelman tarvitsisi käyttää hidasta Miller-Rabin alkulukutestiä jokaisen luvun kohdalla, lasketaan lista pienempiä alkulukuja käyttäen Erastothenen seulaa. Wikiperian mukaan kyseisen algoritmin aikavaativuus on O(n log log n) eli algoritmi on huomattavasti Miller-Rabin algoritmia nopeampi. Ohjelman viestin salauksen ja salauksen purkamisen yhteydessä käyttämä pow-funktio on aikavaativuudeltaan O(log n).
+Reseachgatesta löytämäni julkaisun mukaan RSA-algoritmin aikavaativuus on O((log_{2}x))^{3}. Miller-Rabin alkulukutestin aikavaativuudeksi sanotaan yleisesti Wikipediassa O(k log^{3} n). Jottei ohjelman tarvitsisi käyttää hidasta Miller-Rabin alkulukutestiä jokaisen testattavan luvun kohdalla, lasketaan lista pienempiä alkulukuja käyttäen Erastothenen seulaa. Wikiperian mukaan kyseisen algoritmin aikavaativuus on O(n log log n) eli algoritmi on huomattavasti Miller-Rabin algoritmia nopeampi. Ohjelman viestin salauksen ja salauksen purkamisen yhteydessä käyttämä pow-funktio on aikavaativuudeltaan O(log n).
 
 ## Parannuksia
 Ohjelmassa voisi olla vaihtoehtona että käyttäjä voisi syöttää ohjelmalle itse avaimet joita käyttäen hän haluaa salata viestin. Tällöin myös eksponentti e voisi olla satunnaisluku ja ohjelma tarkastaisi sopivatko avaimet viestin salaamiseen.
@@ -22,8 +22,6 @@ Projektissa on käytetty muutamaan otteeseen OpenAi:n ChatGPT kielimallia. Kieli
 
 ## Viitteet
 - [Wikipedia: RSA](https://fi.wikipedia.org/wiki/RSA)
-
-- [Geeks for Geeks: Miller-Rabin alkulukutesti](https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/)
 
 - [Naukri: pow](https://www.naukri.com/code360/library/math-pow)
 
