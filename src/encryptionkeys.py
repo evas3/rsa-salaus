@@ -20,6 +20,7 @@ class EncryptionKeys:
     def private_key_d(self, phi, e):
         """
         Salaisen avaimen eksponenttiosan d laskemiseen. Palauttaa salaisen avaimen d osan
+        d on modulaariaritmetiikan käänteisluku e modulo phi
         
         Args:
             phi : (prime_p - 1) * (prime_q - 1). Alkuluvut p ja q ovat

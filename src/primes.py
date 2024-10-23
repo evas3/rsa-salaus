@@ -32,20 +32,22 @@ class Primes:
                 return False
 
         #Miller-Rabin alkulukutesti
-        e = num - 1
-        while e % 2 == 0:
-            e = int(e // 2)
+        d = num - 1
+        s = 0
+        while d % 2 == 0:
+            d = d // 2
+            s += 1
+        #Nyt num-1=2^{s}d
+        #Tyypillisesti testataan 40 iteraatiota
         for i in range(40):
             a = random.randint(2, num-1)
-            pow_unbroken = True
-            if pow(a, e, num) == 1:
-                continue
-            while e < num-1:
-                if pow(a, e, num) == num-1:
-                    pow_unbroken = False
-                    break
-                e = e*2
-            if pow_unbroken:
+            x = pow(a, d, num)
+            for i in range(s):
+                y = pow(x, 2, num)
+                if y == 1 and x != 1 and x != (num-1):
+                    return False
+                x = y
+            if y != 1:
                 return False
         return True
 
