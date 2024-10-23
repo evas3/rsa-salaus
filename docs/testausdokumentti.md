@@ -27,7 +27,7 @@ poetry run invoke coverage
 ## Testikattavuus
 Testikattavuus näyttää tältä
 
-![alt text](https://github.com/evas3/rsa-salaus/blob/main/docs/testikattavuus23.png)
+![alt text](https://github.com/evas3/rsa-salaus/blob/main/docs/testikattavuus24.png)
 
 Testejä on vain 19 kappaletta. Kaikki testit menevät läpi mutta testien läpikäyntiin kuluu jonkin verran aikaa. Testien haarautumiskattavuus on 98%. Tiedoston primes.py 61 rivi jää siis testikattavuuden ulkopuolelle. Kyseisellä rivillä funktio two_primes varmistaa että generoidut alkuluvut p ja q eivät ole sama luku. Jos ne ovat samat niin alkuluku q generoidaan uudestaan niin monta kertaa kunnes alkuluvut ovat erisuuret ennen kun ne sisältävä tuple palautetaan. 
 
