@@ -15,8 +15,9 @@ class Primes:
 
         while True:
             test = secrets.randbits(1030)
-            if self.check_if_prime(test):
-                return test
+            if test % 2 != 0:
+                if self.check_if_prime(test):
+                    return test
 
     def check_if_prime(self, num):
         """
