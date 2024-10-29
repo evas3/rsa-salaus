@@ -20,13 +20,13 @@ class Encryption:
     def encryption(self, message_as_numbers, public_key_e):
         """
         Vastaa viestin salaamisesta. Palauttaa tuplen jonka ensimmäinen elementti on
-        salattu viesti, toinen elementti julkinen avain n ja viimeinen salainen avain d.
+        salattu viesti, toinen elementti julkinen avain n ja viimeinen yksityinen avain d.
         RSA-salauksessa salattu viesti saadaan (viesti)^{e} mod n jossa n on kahden suuren
-        alkuluvun (q ja p) tulo.
+        toisistaan eriävän alkuluvun (q ja p) tulo.
 
         Args:
             message_as_numbers : salattava viesti numeroina
-            public_key_e : julkinen avain e. Positiivinen kokonaisluku
+            public_key_e : julkinen avain e. Kokonaisluku väliltä [2, lam-2] jossa lam = lcm(p-1, q-1)
 
         """
 
@@ -34,7 +34,6 @@ class Encryption:
         prime_p = primes[0]
         prime_q = primes[1]
         n = prime_p * prime_q
-        phi =  (prime_p - 1) * (prime_q - 1)
+        private_key_d =  EncryptionKeys().private_key_d(prime_p, prime_q, public_key_e)
         encrypted_message = pow(message_as_numbers, public_key_e, n)
-        private_key_d = EncryptionKeys().private_key_d(phi, public_key_e)
         return (encrypted_message, n, private_key_d)

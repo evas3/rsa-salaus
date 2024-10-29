@@ -22,7 +22,7 @@ class Decryption:
         """
         Vastaa viestin salauksen purkamisesta. Palauttaa viestin siten että sen salaus on purettu.
         salaamaton viesti saadaan RSA-salauksessa kaavalla (salattu viesti)^{d} mod n jossa n on
-        kahden suuren alkuluvun (q ja p) tulo.
+        kahden suuren toisistaan eriävän alkuluvun (q ja p) tulo.
 
         Args:
             encrypted_message : purettava viesti numeroina

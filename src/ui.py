@@ -21,7 +21,8 @@ class Ui:
     def menu(self):
         """
         Funktio tulostaa käyttäjälle aloitusvalikon. Käyttäjän tulee syöttää
-        ohjelmalle haluttua toimintoa vastaava numero.
+        ohjelmalle haluttua toimintoa vastaava numero. Jos numero ei vastaa
+        mitään toimintoa, sitä kysytään uudestaan
         """
 
         print("Toiminnot:")
@@ -49,15 +50,15 @@ class Ui:
         Funktio viestin salaamisen käyttöliittymäpuolta varten. Käyttäjän tulee
         syöttää ohjelmalle salattava viesti. Jos viesti on alle 256 tavua pitkä,
         ohjelma tulostaa käyttäjälle viestin salattuna sekä julkisen avaimen n
-        ja salaisen avaimen d.
+        ja salaisen avaimen d palaten valikkoon. Muutoin viestiä kysytään uudelleen
         """
 
         message = input("\nSyötä viesti jonka haluat salata (viestin täytyy olla alle 256 tavua): ")
+        e = 65537
         try:
-            e = 65537
             message_int = Encryption().message_to_int(message)
             encrypted_info= Encryption().encryption(message_int, e)
-            #Testaa ettei viesti ole liian pitkä
+            #Testaa ettei viesti ole liian pitkä ja että se on purettavissa
             test_decryption = Decryption().decryption(encrypted_info[0], encrypted_info[2], encrypted_info[1])
             test_msg_to_str = Decryption().message_to_str(test_decryption)
             print("\n\nSalattu viesti on:", str(encrypted_info[0]),"\n")
@@ -75,7 +76,8 @@ class Ui:
         Funktio viestin salauksen purkamisen käyttöliittymäpuolta varten.
         Käyttäjän tulee syöttää ohjelmalle salattu viesti sekä salainen avain d
         ja julkinen avain n joita käytäen viesti on salattu. Avainten tulee vastata
-        salattua viestiä.
+        salattua viestiä, muutoin ohjelma huomauttaa tästä. Jos avaimet ja viesti
+        täsmäävät tulostetaan viesti salaamattomana ja palataan valikkoon
         """
 
         print("\nSalauksen purkaminen vaatii kyseisen viestin salaukseen käytetyn salaisen avaimen d ja julkisen avaimen n")
@@ -84,7 +86,7 @@ class Ui:
         encrypted_message = input("\nSyötä annetuilla avaimilla salattu viesti: ")
 
         try:
-            if int(private_key_d) > 0 and int(public_key_n) > 0:
+            if int(private_key_d) > 0 and int(public_key_n) > 0 and int(private_key_d).bit_length() > 2047 and int(public_key_n).bit_length() > 2047:
                 private_key_d = int(private_key_d)
                 public_key_n = int(public_key_n)
                 encrypted_message = int(encrypted_message)
@@ -93,7 +95,7 @@ class Ui:
                 print("\n\nViesti on salaamattomana:", str(original_message)+"\n\n")
                 self.menu()
             else:
-                print("\nAvainten tulee olla positiivisia kokonaislukuja")
+                print("\nAvainten tulee olla positiivisia kokonaislukuja joiden pituus bitteinä on vähintään 2048")
                 self.decrypt()
 
         except ValueError:
