@@ -4,7 +4,7 @@ Testaaminen on toteutettu Unittestiä käyttäen automaattisilla yksikkötesteil
 
 ## Ykköstestit
 
-Luokkan EncryptionKeys osalta testataan yksityisen avaimen ja julkisen avaimen luomista. Yksityisen avaimen d osalta tarkastetaan muutamalla phii, e, parilla että d:n arvo on oikeanlainen. Satunnaisesta eksponentista e tarkastetaan että se on positiivinen kokonaisluku joka on suurempi kuin 2 mutta pienempi kuin annettu luku.
+Luokkan EncryptionKeys osalta testataan yksityisen avaimen ja julkisen avaimen luomista. Yksityisen avaimen d osalta tarkastetaan muutamalla suurella alkulukuparilla, että d:n arvo on oikeanlainen ja oikeanpituinen. Eksponentista e tarkastetaan että se on positiivinen kokonaisluku joka on suurempi kuin 2 mutta pienempi kuin annettu luku. Lisäksi tarkastetaan ettei e:llä ja annetulla luvulla ole yhteisiä tekijöitä. Funktiota gcd testataan suurilla luvuilla. Jos luvut on samat, luku on itse yhteinen tekijä ja jos ne poikkeavat yhdellä ei yhteisiä tekijöitä ole. Lisäksi testataan listaa lukuja joiden yhteinen tekijä on tiedossa.
 
 Encryption_tests testaa sekä Encryption että Decryption luokkaa. Se testaa että viestin muuttaminen merkeistä numeroihin ja takaisin toimii halutulla tavalla eli että kun viesti muunnetaan numeeriseen muotoon, saadaan alkuperäinen viesti kääntämällä numeerinen muoto takaisin merkeiksi. Testaamisessa on käytetty erikoismerkkejä ja numeroita sisältävää merkkijonoa, sekä tyhjää merkkijonoa. Lisäksi on testattu että varsinainen salaaminen toimii eli että salattu viesti saadaan purettua takaisin alkuperäiseen muotoon. Tässäkin on käytetty kirjaimia, numeroita ja erikoismerkkejä sisältävää merkkijonoa, suurta lukua sekä tyhjää merkkijonoa. Käyttäjä voi antaa ainoastaan str muoroisia syötteitä joten muilla syötteillä ohjelmaa ei ole testattu.
 
@@ -27,9 +27,9 @@ poetry run invoke coverage
 ## Testikattavuus
 Testikattavuus näyttää tältä
 
-![alt text](https://github.com/evas3/rsa-salaus/blob/main/docs/testikattavuus24.png)
+![alt text](https://github.com/evas3/rsa-salaus/blob/main/docs/testikattavuus29.png)
 
-Testejä on vain 19 kappaletta. Kaikki testit menevät läpi mutta testien läpikäyntiin kuluu jonkin verran aikaa. Testien haarautumiskattavuus on 98%. Tiedoston primes.py 61 rivi jää siis testikattavuuden ulkopuolelle. Kyseisellä rivillä funktio two_primes varmistaa että generoidut alkuluvut p ja q eivät ole sama luku. Jos ne ovat samat niin alkuluku q generoidaan uudestaan niin monta kertaa kunnes alkuluvut ovat erisuuret ennen kun ne sisältävä tuple palautetaan. 
+Testejä on 32 kappaletta. Kaikki testit menevät läpi mutta testien läpikäyntiin kuluu jonkin verran aikaa. Testien haarautumiskattavuus on 97%. Tiedoston primes.py 49 ja 64 rivit jää siis testikattavuuden ulkopuolelle. Rivi 49 on osa Miller-Rabin alkulukutestiä. Luku ei ole alkuluku jos y on 1, x ei ole 1 ja x ei ole num-1. Rivillä 64 funktio two_primes varmistaa että generoidut alkuluvut p ja q eivät ole sama luku. Jos ne ovat samat niin alkuluku q generoidaan uudestaan niin monta kertaa kunnes alkuluvut ovat erisuuret ennen kun ne sisältävä tuple palautetaan. 
 
 ## Käyttöliittymän testaus
 Annettaessa alkuvalikkoon tyhjä merkkojono, merkkijono tai numero joka ei vastaa toimintoa, käyttöliittymä kysyy uudelleen haluttua toimintoa. 
