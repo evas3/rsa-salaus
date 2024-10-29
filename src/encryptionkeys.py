@@ -26,7 +26,8 @@ class EncryptionKeys:
         """
         Salaisen avaimen eksponenttiosan d laskemiseen. Palauttaa salaisen avaimen d osan
         d on modulaariaritmetiikan käänteisluku e modulo lam. Lam saadaan λ(n) = lcm(p-1, q-1).
-        Alkuluvut p ja q ovat toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja 1030 bitti
+        Alkuluvut p ja q ovat toisistaan riippumattomia alkulukuja jotka ovat erisuuret ja 1030
+        bittiä
         
         Args:
             lam : λ(n) = lcm(p-1, q-1). Alkuluvut p ja q ovat
@@ -38,7 +39,7 @@ class EncryptionKeys:
         lcm = abs((p-1)*(q-1)) // EncryptionKeys().gcd(p-1, q-1)
         d = pow(e, -1, lcm)
         return d
-    
+
     def gcd(self, a, b):
         """
         Eukleideen algoritmi selvittää kahden kokonaisluvun suurimman yhteisen jakajan. Tätä
@@ -54,5 +55,4 @@ class EncryptionKeys:
 
         if b == 0:
             return a
-        else:
-            return self.gcd(b, a % b)
+        return self.gcd(b, a % b)

@@ -26,7 +26,8 @@ class Encryption:
 
         Args:
             message_as_numbers : salattava viesti numeroina
-            public_key_e : julkinen avain e. Kokonaisluku väliltä [2, lam-2] jossa lam = lcm(p-1, q-1)
+            public_key_e : julkinen avain e. Kokonaisluku väliltä [2, lam-2]
+            jossa lam = lcm(p-1, q-1)
 
         """
 
